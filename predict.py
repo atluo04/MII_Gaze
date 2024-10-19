@@ -36,6 +36,7 @@ class TestReflaxcDataset(Dataset):
             image = None  
         return image, self.labels[idx] if image else None
 
+
 data_csv = "Dataset\\reflacx-reports-and-eye-tracking-data-for-localization-of-abnormalities-in-chest-x-rays-1.0.0\main_data\metadata_phase_1.csv"
 sample_diseases = [
     "Airway wall thickening",
@@ -54,7 +55,7 @@ dataset = TestReflaxcDataset(csv=data_csv, diseases=sample_diseases, transform=d
 test_dataloader = DataLoader(dataset=dataset)
 model = BaselineModel()
 
-test_image = torch.randn((1, 3, 224, 224))
+test_image = torch.randn((1, 3, 224, 224))  
 output = model(test_image)
 print(output)
 

@@ -9,7 +9,7 @@ class EfficientNetEncoder(nn.Module):
         if pretrained:
             self.encoder = efficientnet_b0(weights=EfficientNet_B0_Weights.IMAGENET1K_V1)
         else:
-            self.encoder = efficientnet_b0(pretrained=False)
+            self.encoder = efficientnet_b0()
         self.encoder = nn.Sequential(*list(self.encoder.children())[:-2])
 
     def forward(self, x):
