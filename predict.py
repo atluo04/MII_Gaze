@@ -59,10 +59,3 @@ test_image = torch.randn((1, 3, 224, 224))
 output = model(test_image)
 print(output)
 
-# with torch.no_grad():
-#     model.eval()
-#     for input, label in test_dataloader:
-#         input = input.to(device)    
-#         label = input.to(device)
-        
-#         output = model(input)
