@@ -34,7 +34,7 @@ class TestReflaxcDataset(Dataset):
         except requests.exceptions.RequestException as e:
             print(f"Error downloading image {image_url}: {e}")
             image = None  
-        return image, self.labels[idx] if image else None
+        return image, (self.labels[idx] >= 3).float() if image else None
 
 
 data_csv = "Dataset\\reflacx-reports-and-eye-tracking-data-for-localization-of-abnormalities-in-chest-x-rays-1.0.0\main_data\metadata_phase_1.csv"
